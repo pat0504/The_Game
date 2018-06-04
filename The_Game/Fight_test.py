@@ -43,9 +43,9 @@ class Player:
 
 def attack(self, player, enemy1):
           if player.mattack == 0:
-               enemy1.hp - (player.attack - 20%(enemy1.defense))
+               enemy1.hp - player.attack
           elif player.attack == 0:
-               enemy1.hp - (player.mattack - 20%(enemy1.mdefense))
+               enemy1.hp - player.mattack
 #### Enemy Setup ####
 class Enemy:
       def __init__(self, hp, mp, attack, mattack, defense, mdefense, defeated = False):
@@ -144,6 +144,15 @@ def Fight_test():
                print(testEnemy.hp)
           elif action.lower() in ['defend', 'd']:
                print('hello')
+     while action.lower() not in valid_actions:
+          print("Invalid")
+          if action.lower() in valid_actions:
+               if action.lower() in ['attack', 'a']:
+                    attack(myPlayer1, testEnemy)
+                    print(testEnemy.hp)
+               elif action.lower() in ['defend', 'd']:
+                    print('hello')
+          
 
 
 
